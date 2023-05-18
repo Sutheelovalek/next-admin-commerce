@@ -9,7 +9,7 @@ img {
 input,
 textarea,
 select {
-  @apply border-2 border-gray-300 rounded-md px-1 w-full;
+  @apply border border-gray-200 rounded-sm px-1 w-full py-2;
   @apply mb-2;
 }
 
@@ -20,7 +20,7 @@ select:focus {
 }
 
 h1 {
-  @apply text-blue-500 mb-2 text-xl;
+  @apply text-blue-900 mb-4 text-2xl;
 }
 
 label {
@@ -32,19 +32,20 @@ label {
 }
 
 table.basic {
-  @apply w-full;
+  @apply w-full bg-white rounded-sm shadow-md;
 }
 
 table.basic thead tr td {
-  @apply bg-blue-100;
+  @apply text-sm text-gray-600 uppercase border-b border-gray-200 px-4 py-4;
 }
 
 table.basic tr td {
-  @apply border border-blue-200 p-1;
+  @apply  px-4 py-1
 }
 
 table.basic a {
-  @apply bg-blue-500 text-white text-sm py-1 px-2 rounded-md inline-flex gap-1 mr-1;
+  @apply text-sm px-4 rounded-sm mx-1 items-center
+  inline-flex gap-1 py-1;
 }
 
 .btn-default,
@@ -53,9 +54,9 @@ table.basic a {
 }
 
 .btn-red {
-  @apply bg-red-500 text-white;
+  @apply bg-red-200 text-red-600 px-4 py-1 rounded-sm shadow-sm;
 }
 
 .btn-default {
-  @apply bg-gray-500 text-white;
+  @apply bg-white text-gray-900 px-4 py-1 rounded-sm border border-gray-200 shadow-sm;
 }

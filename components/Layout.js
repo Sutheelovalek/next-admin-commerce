@@ -9,7 +9,7 @@ export default function Layout({ children }) {
 
   if (!session) {
     return (
-      <section className="bg-bgGray w-screen h-screen flex items-center">
+      <section className="bg-blue-500 w-screen h-screen flex items-center">
         <div className="text-center w-full">
           <button
             onClick={() => signIn('google')}

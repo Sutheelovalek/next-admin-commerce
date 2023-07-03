@@ -1,9 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import axios from "axios";
-import { redirect } from "next/dist/server/api-utils";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import Layout from "@/components/Layout";
 import Spinner from "./Spinner";
 import { ReactSortable } from "react-sortablejs";
 
@@ -28,10 +26,14 @@ export default function ProductForm({
   const router = useRouter();
 
   useEffect(() => {
-    axios.get("/api/categories").then((result) => {
-      setCategories(result.data);
-    });
+    if (categories.length === 0) {
+      axios.get("/api/categories").then((result) => {
+        setCategories(result.data);
+      });
+    }
   }, []);
+  
+
   async function saveProduct(ev) {
     ev.preventDefault();
     const data = { 
@@ -86,7 +88,6 @@ export default function ProductForm({
   }
   
   const propertiesToFill = [];
-
   if (categories.length > 0 && category) {
     let catInfo = categories.find(({ _id }) => _id === category);
   
@@ -97,19 +98,20 @@ export default function ProductForm({
     while (catInfo?.parent?._id) {
       const parentCat = categories.find(
         ({ _id }) => _id === catInfo?.parent?._id
-      );
-  
+      ); 
       if (parentCat && parentCat.properties) {
-        propertiesToFill.push(...parentCat.properties);
+        const properties = parentCat.properties || [];
+      
+        if (properties && properties.length > 0) {
+          propertiesToFill.push(...properties);
+        }             
         catInfo = parentCat;
       } else {
-        break; // Break the loop if parentCat or its properties are undefined
+        break;
       }
     }
   }
   
-  
-
   return (
     <>
       <form onSubmit={saveProduct}>

@@ -21,7 +21,7 @@
     "multiparty": "^4.2.3",
     "next": "^16.1.6",
     "next-auth": "^4.22.1",
-    "postcss": "8.4.23",
+    "postcss": "^8.5.6",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-sortablejs": "^6.1.4",

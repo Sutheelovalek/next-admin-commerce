@@ -17,6 +17,7 @@
     "eslint-config-next": "13.4.0",
     "fast-xml-parser": "^5.4.2",
     "mime-types": "^2.1.35",
+    "minimatch": "^10.2.4",
     "mongodb": "^5.4.0",
     "mongoose": "^7.1.0",
     "multiparty": "^4.2.3",
